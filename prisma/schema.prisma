@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model DeceasedEmployee {
+  id                 String    @id @default(uuid())
+  // mratak
+  deceadName         String
+  deceadDesgnation   String
+  pno                String
+  deathDate          DateTime?
+  dependentName      String
+  depandentRelation  String
+  applicationDate    DateTime?
+  postForAppointment String
+  fileNo             String
+  apporvalDate       DateTime?
+  documentUrl        String? // Store file link from S3/local/etc.
+  createdAt          DateTime  @default(now())
+}
